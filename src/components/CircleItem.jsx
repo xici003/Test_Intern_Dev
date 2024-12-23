@@ -10,12 +10,17 @@ function CircleItem({
   smLeft,
   smRight,
   id,
+  isSmall,
 }) {
   return (
     <div
-      className={`absolute py-4 px-5 ${smTop} ${smBottom} ${smLeft} ${smRight} md:${top} md:${bottom} md:${left} md:${right} ${
+      className={`absolute py-4 px-5  ${
+        isSmall
+          ? `${smTop} ${smBottom} ${smLeft} ${smRight}`
+          : `${top} ${bottom} ${left} ${right}`
+      }  ${
         activeIndex === id ? "bg-[#303386]" : "bg-white"
-      }  rounded-full shadow-lg`}
+      } rounded-full shadow-lg `}
     >
       <img src="/Layer2.svg" alt="circle-small" />
       <p

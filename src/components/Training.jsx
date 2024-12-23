@@ -42,6 +42,14 @@ const items = [
 
 function Training() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isSmall, setIsSmall] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsSmall(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -106,6 +114,7 @@ function Training() {
               left="left-24"
               smTop="top-0"
               smLeft="left-0"
+              isSmall={isSmall}
             />
             <CircleItem
               title="Management"
@@ -115,6 +124,7 @@ function Training() {
               left="left-16"
               smTop="top-0"
               smLeft="left-32"
+              isSmall={isSmall}
             />
             <CircleItem
               title="Training"
@@ -124,6 +134,7 @@ function Training() {
               left="left-32"
               smTop="top-0"
               smRight="right-4"
+              isSmall={isSmall}
             />
             <CircleItem
               title="Hospitality"
@@ -133,6 +144,7 @@ function Training() {
               left="left-72"
               smTop="top-24"
               smLeft="left-16"
+              isSmall={isSmall}
             />
             <CircleItem
               title="Consulting"
@@ -142,6 +154,7 @@ function Training() {
               right="right-32"
               smTop="top-24"
               smRight="right-20"
+              isSmall={isSmall}
             />
           </div>
         </div>
